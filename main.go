@@ -81,11 +81,11 @@ func (lb *LoadBalancer) serverProxy(w http.ResponseWriter, r *http.Request) {
 func main() {
 	servers := []Server{
 		simpleServer("https://www.facebook.com"),
-		simpleServer("https://www.youtube.com/"),
+		simpleServer("https://www.duckduckgo.com/"),
 		simpleServer("https://www.bing.com"),
 	}
 
-	lb := newLoadBalancer("8080", servers)
+	lb := newLoadBalancer("3000", servers)
 
 	handleRedirect := func(w http.ResponseWriter, r *http.Request) {
 		lb.serverProxy(w, r)
